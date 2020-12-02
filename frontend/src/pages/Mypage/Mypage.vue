@@ -13,11 +13,6 @@
                                ref="id" required type="text" id="userId" placeholder="ID" @keyup.enter="moveToEmail"/>
                     </div>
                     <div class="form-group">
-                        <input v-model="userEmail" class="form-control no-border"
-                               ref="email" required type="email" id="userEmail" placeholder="Email"
-                               @keyup.enter="moveToPassword"/>
-                    </div>
-                    <div class="form-group">
                         <input v-model="userPassword" style="width: 78%; float: left;" class="form-control no-border"
                                ref="password" required
                                type="password" id="password" placeholder="Password"/>
@@ -35,9 +30,6 @@
                 </form>
             </Widget>
         </b-container>
-        <footer class="auth-footer">
-            Quality And Satisfy
-        </footer>
     </div>
 </template>
 
@@ -50,7 +42,6 @@
         data() {
             return {
                 userId: null,
-                userEmail: null,
                 userPassword: null
             }
         },
@@ -66,15 +57,11 @@
             editPassword() {
                 this.$store.dispatch('join/authIds', this.userId)
             },
-            moveToEmail() {
-                document.getElementById('userEmail').focus()
-            },
             moveToPassword() {
                 document.getElementById('userPassword').focus()
             },
             clearForm() {
                 this.userId = null
-                this.userEmail = null
                 this.userPassword = null
             },
             cancel() {

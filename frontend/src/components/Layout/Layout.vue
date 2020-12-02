@@ -9,9 +9,7 @@
       <transition name="router-animation">
         <router-view />
       </transition>
-      <footer class="contentFooter">
-        Qualty And Satisfy
-        </footer>
+      <Footer />
     </v-touch>
   </div>
 </div>
@@ -27,10 +25,11 @@ import Helper from '@/components/Helper/Helper';
 import BreadcrumbHistory from '@/components/BreadcrumbHistory/BreadcrumbHistory';
 
 import './Layout.scss';
+import Footer from "@/components/Footer/Footer";
 
 export default {
   name: 'Layout',
-  components: { Sidebar, Header, Helper, BreadcrumbHistory },
+  components: {Footer, Sidebar, Header, Helper, BreadcrumbHistory },
   methods: {
     ...mapActions(['switchSidebar', 'handleSwipe', 'changeSidebarActive', 'toggleSidebar'],
     ),

@@ -24,11 +24,8 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    compile group: 'org.jsoup', name: 'jsoup', version: '1.13.1'
-//    compile group: 'org.mybatis', name: 'mybatis', version: '3.5.5'
     compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client'
     compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.2'
-
 
     implementation 'com.auth0:java-jwt:3.10.3'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'

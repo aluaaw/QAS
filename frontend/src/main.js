@@ -11,9 +11,8 @@ import axios from 'axios'
 import InfiniteLoading from "vue-infinite-loading";
 
 import store from './store';
-import router from './Routes';
+import router from './router';
 import App from './App';
-import layoutMixin from './mixins/layout';
 import Widget from './components/Widget/Widget';
 
 Vue.prototype.$http = axios;
@@ -29,7 +28,6 @@ Vue.use(VueGoogleMaps, {
   },
 });
 Vue.component('apexchart', VueApexCharts);
-Vue.mixin(layoutMixin);
 Vue.use(Toasted, {duration: 10000});
 
 Vue.config.productionTip = false;

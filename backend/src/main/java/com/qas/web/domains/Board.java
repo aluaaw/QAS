@@ -14,8 +14,6 @@ import java.time.LocalDateTime;
 @Component
 public class Board {
     protected int postIdx;
-    protected String title;
-    protected String content;
-    protected LocalDateTime createDate;
-    protected LocalDateTime updateDate;
+    protected String title, content;
+    protected LocalDateTime createDate, updateDate;
 }

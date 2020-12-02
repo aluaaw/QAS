@@ -10,7 +10,7 @@
       <ul class="nav">
         <NavLink
             :activeItem="activeItem"
-              header="My Page"
+            header="Main"
             link="/main"
             iconName="flaticon-home"
             index="main"
@@ -19,7 +19,7 @@
         <NavLink
             :activeItem="activeItem"
             header="Board"
-            link="board/list"
+            link="/list"
             iconName="flaticon-network"
             index="board"
             isHeader

@@ -1,38 +1,40 @@
 <template>
   <div>
     <h2>게시판 리스트</h2>
-
-    <div class="listWrap">
+    <div class="listWrap" style="padding: 55px">
       <table class="tbList">
         <colgroup>
-          <col width="10%"/>
-          <col width="30%"/>
-          <col width="45%"/>
-          <col width="40%"/>
+          <col width="5%"/>
+          <col width="25%"/>
+          <col width="5%"/>
+          <col width="8%"/>
+          <col width="2%"/>
         </colgroup>
-        <div class="btnRightWrap">
-          <b-button @click="fnAdd" class="btn">등록</b-button>
-        </div>
-
         <tr>
-          <th>번 호</th>
-          <th>제 목</th>
-          <th>내 용</th>
-          <th>작성일</th>
+          <th style="text-align: center">번 호</th>
+          <th style="text-align: center">제 목</th>
+          <th style="text-align: center">글쓴이</th>
+          <th style="text-align: center">최종 작성일</th>
+          <th style="text-align: center">조회수</th>
         </tr>
-
         <tr v-if="list === null">
           <td colspan="4">데이터가 없습니다.</td>
         </tr>
 
-        <tr v-else v-for="data in list">
-          <td>{{ data.postIdx }}</td>
-          <td class="txt_left"><a href="javascript:;">{{ data.title }}</a></td>
-          <td>{{ data.content }}</td>
-          <td>{{ data.createDate }}</td>
+        <tr v-else v-for="data in list" v-bind:key="data.postIdx">
+          <td style="text-align: center">{{ data.postIdx }}</td>
+          <td class="txt_left"><a href="javascript:;" @click="fnView(`${data.postIdx}`)">{{ data.title }}</a></td>
+          <td style="text-align: center">헬로월드</td> <!-- userName -->
+          <td style="text-align: center">{{ data.updateDate }}</td> <!-- updateDate -->
+          <td style="text-align: center">0</td> <!-- view -->
         </tr>
       </table>
     </div>
+
+    <div class="btnRightWrap">
+      <b-button @click="fnAdd" class="btn">글쓰기</b-button>
+    </div>
+
   </div>
 </template>
 
@@ -55,12 +57,14 @@ export default {
     , getList() {
       return axios.get("http://localhost:8080/board")
           .then(({data}) => {
-            console.log("성공", data)
             this.list = data;
           })
           .then((err) => {
             console.log(err);
           })
+    },
+    fnView(postIdx) {
+      this.$router.push({path: '/view/' + postIdx, query: this.body})
     }
   }
 }
@@ -81,10 +85,12 @@ export default {
 }
 
 .btnRightWrap {
-  text-align: right;
+  text-align: center;
+  float: bottom;
+  padding: 10px;
 }
 
 .btn {
-  background: #43b984
+  background: #a3aeb7;
 }
 </style>

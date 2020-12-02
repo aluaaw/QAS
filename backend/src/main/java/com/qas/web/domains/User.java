@@ -1,17 +1,19 @@
 package com.qas.web.domains;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
-@Data
-@Component @Lazy
+@Lazy
+@Getter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Component
 public class User {
-    protected Integer userIdx;
-    protected String id;
-    protected String password;
-    protected Timestamp createDate;
-    protected Timestamp updateDate;
+    protected int userIdx;
+    protected String id, password, name;
+    protected LocalDateTime createDate, updateDate;
 }
