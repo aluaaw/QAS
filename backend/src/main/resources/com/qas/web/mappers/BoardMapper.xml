@@ -1,0 +1,36 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qas.web.mappers.BoardMapper">
+    <insert id="save" parameterType="com.qas.web.domains.Board">
+        insert into board (title, content, create_date, update_date)
+        values(#{title}, #{content}, now(), now())
+    </insert>
+
+    <select id="findAll" resultType="com.qas.web.domains.Board">
+        select post_idx as postIdx,
+        title, content,
+        create_date as createDate
+        from board
+    </select>
+
+    <select id="findOne" resultType="com.qas.web.domains.Board"
+            parameterType="int">
+        select *
+        from board
+        where post_idx = #{postIdx}
+    </select>
+
+    <update id="update"
+            parameterType="int">
+        update board set
+        updateDate as update_date = now()
+        where post_idx = {postIdx}
+    </update>
+
+    <delete id="postIdx" parameterType="int">
+        delete from board
+        where post_idx = {postIdx}
+    </delete>
+</mapper>
