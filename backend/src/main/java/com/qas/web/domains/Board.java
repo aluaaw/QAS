@@ -8,12 +8,13 @@ import java.time.LocalDateTime;
 
 @Lazy
 @Getter
+@Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
 public class Board {
-    protected int postIdx;
+    protected int postIdx, view;
     protected String title, content;
     protected LocalDateTime createDate, updateDate;
 }

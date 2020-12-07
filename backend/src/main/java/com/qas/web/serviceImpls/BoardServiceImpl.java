@@ -6,6 +6,8 @@ import com.qas.web.servies.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -25,16 +27,34 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public Board findOne(int postIdx) {
+        int view = boardMapper.plusCount(postIdx);
+        Board board = new Board();
+        board.setView(view);
         return boardMapper.findOne(postIdx);
     }
 
     @Override
-    public void update(int postIdx) {
-        boardMapper.update(postIdx);
+    public void update(int postIdx, Board request) {
+        String title = request.getTitle();
+        String content = request.getContent();
+        boardMapper.update(postIdx, title, content);
     }
 
     @Override
     public void delete(int postIdx) {
         boardMapper.deleteAll(postIdx);
+    }
+
+    @Override
+    public List<String> search(String searchValue) {
+        String[] searchList = boardMapper.findTitle(searchValue);
+        System.out.println(Arrays.toString(searchList));
+        List<String> resultSearchList = new ArrayList<>();
+        for (int i = 0; i < searchList.length; i++) {
+            if(searchList[i].contains(searchValue)) {
+                resultSearchList.add(searchList[i]);
+            }
+        }
+        return resultSearchList;
     }
 }

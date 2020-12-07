@@ -19,7 +19,6 @@ public class UserController {
 
     @PostMapping("/login")
     public boolean login(@RequestBody User request) {
-        System.out.println(request.getId() +", "+request.getPassword());
         return userService.login(request);
     }
 

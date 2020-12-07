@@ -3,6 +3,7 @@ package com.qas.web.controllers;
 import com.qas.web.domains.Board;
 import com.qas.web.servies.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,12 +32,18 @@ public class BoardController {
     }
 
     @PutMapping("/{postIdx}")
-    public void update(@PathVariable int postIdx) {
-        boardService.update(postIdx);
+    public void update(@PathVariable int postIdx, @RequestBody Board request) {
+        boardService.update(postIdx, request);
     }
 
     @DeleteMapping("/{postIdx}")
     public void delete(@PathVariable int postIdx) {
         boardService.delete(postIdx);
+    }
+
+    @GetMapping("/search/{searchValue}")
+    public List<String> search(@PathVariable String searchValue) {
+        System.out.println(boardService.search(searchValue));
+        return boardService.search(searchValue);
     }
 }

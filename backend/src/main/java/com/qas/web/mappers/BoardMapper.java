@@ -10,6 +10,8 @@ public interface BoardMapper {
     public void save(Board board);
     public List<Board> findAll();
     public Board findOne(int postIdx);
-    public void update(int postIdx);
+    public int plusCount(int postIdx);
+    public void update(int postIdx, String title, String content);
     public void deleteAll(int postIdx);
+    public String[] findTitle(String searchValue);
 }

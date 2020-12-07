@@ -4,14 +4,12 @@
 
 <mapper namespace="com.qas.web.mappers.BoardMapper">
     <insert id="save" parameterType="com.qas.web.domains.Board">
-        insert into board (title, content, create_date, update_date)
-        values(#{title}, #{content}, now(), now())
+        insert into board (title, content, create_date, update_date, view, user_idx)
+        values(#{title}, #{content}, now(), now(), 0, 1)
     </insert>
 
     <select id="findAll" resultType="com.qas.web.domains.Board">
-        select post_idx as postIdx,
-        title, content,
-        update_date as updateDate
+        select post_idx as postIdx, title, content, view, update_date as updateDate
         from board
     </select>
 
@@ -22,14 +20,27 @@
         where post_idx = #{postIdx}
     </select>
 
-    <update id="update"
-            parameterType="int">
-        update board set
-        updateDate as update_date = now()
+    <select id="findTitle" parameterType="string" resultType="com.qas.web.domains.Board">
+        select title
+        from board
+        where title like '%'+#{title}+'%'
+    </select>
+
+    <update id="plusCount" parameterType="int">
+        update board
+        set view = view + 1
         where post_idx = #{postIdx}
     </update>
 
-    <delete id="postIdx" parameterType="int">
+    <update id="update"
+            parameterType="com.qas.web.domains.Board">
+        update board
+        set title = #{title}, content = #{content},
+        update_date = now()
+        where post_idx = #{postIdx}
+    </update>
+
+    <delete id="deleteAll" parameterType="int">
         delete from board
         where post_idx = #{postIdx}
     </delete>

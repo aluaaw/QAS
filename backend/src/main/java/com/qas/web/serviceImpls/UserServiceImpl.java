@@ -29,7 +29,6 @@ public class UserServiceImpl implements UserService {
                     return true;
                 }
             } else {
-                System.out.println("여기에 도달은 하나?");
                 return false;
             }
             return false;

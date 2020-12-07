@@ -9,6 +9,7 @@ import Error from '@/pages/Error/Error';
 
 import Main from '@/pages/Dashboard/Dashboard';
 import List from '@/pages/Typography/List'
+import Write from '@/pages/Typography/Write'
 import Edit from '@/pages/Typography/Edit'
 import View from '@/pages/Typography/View'
 
@@ -56,17 +57,17 @@ export default new Router({
                     component: List,
                 },
                 {
-                    path: '/view/1', //동적
+                    path: '/view/:postidx',
                     name: 'View',
                     component: View,
                 },
                 {
                     path: '/write',
                     name: 'Write',
-                    component: Edit,
+                    component: Write,
                 },
                 {
-                    path: '/edit', //동적
+                    path: '/edit/:postidx', //동적
                     name: 'Edit',
                     component: Edit,
                 }

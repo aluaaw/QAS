@@ -13,20 +13,18 @@
         <tr>
           <th style="text-align: center">번 호</th>
           <th style="text-align: center">제 목</th>
-          <th style="text-align: center">글쓴이</th>
           <th style="text-align: center">최종 작성일</th>
           <th style="text-align: center">조회수</th>
         </tr>
-        <tr v-if="list === undefined">
+        <tr v-if="list === 0">
           <td colspan="5" style="text-align: center">게시글이 없습니다.</td>
         </tr>
 
         <tr v-else v-for="data in list" v-bind:key="data.postIdx">
           <td style="text-align: center">{{ data.postIdx }}</td>
           <td class="txt_left"><a href="javascript:;" @click="fnView(`${data.postIdx}`)">{{ data.title }}</a></td>
-          <td style="text-align: center">헬로월드</td> <!-- userName -->
-          <td style="text-align: center">{{ data.updateDate }}</td> <!-- updateDate -->
-          <td style="text-align: center">0</td> <!-- view -->
+          <td style="text-align: center">{{ data.updateDate }}</td>
+          <td style="text-align: center">{{ data.view }}</td>
         </tr>
       </table>
     </div>
@@ -59,8 +57,8 @@ export default {
           .then(({data}) => {
             this.list = data;
           })
-          .then((err) => {
-            console.log(err);
+          .catch(() => {
+            alert("리스트 불러오는 데 실패하였습니다.");
           })
     },
     fnView(postIdx) {

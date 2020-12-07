@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>게시판 수정</h2>
+    <h2>게시판 등록</h2>
     <div class="AddWrap" style="padding: 55px">
 
       <div>
@@ -23,7 +23,7 @@
               <th>내용</th>
               <td>
                 <div class="input">
-                  <textarea v-model="content" id="content" ref="content" @submit.prevent="fnUpdateProc"/>
+                  <textarea v-model="content" id="content" ref="content" @submit.prevent="fnAddProc"/>
                 </div>
               </td>
             </tr>
@@ -33,7 +33,7 @@
 
       <div class=" btnWrap">
         <a href="javascript:;" @click="fnList" class="btn">목록으로</a>
-        <a href="javascript:;" @click="fnUpdateProc" class="btn">수정하기</a>
+        <a href="javascript:;" @click="fnAddProc" class="btn">등록하기</a>
       </div>
     </div>
   </div>
@@ -47,32 +47,14 @@ export default {
     return {
       form: {},
       title: '',
-      content: '',
-      num: this.$route.params.postidx
+      content: ''
     }
-  },
-  created() {
-    this.fnGetPost()
   },
   methods: {
     fnList() {
-      this.$router.push({path: '/list', query: this.body});
+      this.$router.push({path: './list', query: this.body});
     },
-    fnGetPost() {
-      if(this.title === undefined) {
-        alert("게시글에 문제가 생겼습니다. 리스트 페이지로 돌아갑니다.");
-        this.fnList();
-      }
-      return axios.get('http://localhost:8080/board/' + this.num, {params: this.body})
-      .then(({data}) => {
-        this.title = data.title;
-        this.content = data.content;
-      })
-      .catch(() => {
-        alert("정보를 불러오지 못했습니다");
-      })
-    },
-    fnUpdateProc() {
+    fnAddProc() {
       if (!this.title) {
         alert("제목을 입력해 주세요.");
         this.$refs.title.focus();
@@ -84,13 +66,14 @@ export default {
           title: this.title,
           content: this.content
         }
-        return axios.put('http://localhost:8080/board/' + this.num, this.form)
+
+        axios.post('http://localhost:8080/board', this.form)
             .then(() => {
-              alert("게시글이 수정되었습니다.");
+              alert("게시글이 등록되었습니다.");
               return this.fnList();
             })
             .catch(() => {
-              alert("수정 실패하였습니다.");
+              alert("등록 실패하였습니다.");
             })
       }
     },
