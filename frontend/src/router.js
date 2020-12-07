@@ -21,17 +21,17 @@ export default new Router({
     mode: 'history',
     routes: [
         {
-            path: 'join',
-            name: 'Join',
-            component: Join,
-        },
-        {
-            path: 'login',
+            path: '/login',
             name: 'Login',
             component: Login,
         },
         {
-            path: 'error',
+            path: '/join',
+            name: 'Join',
+            component: Join,
+        },
+        {
+            path: '/error',
             name: 'Error',
             component: Error,
         },
@@ -41,32 +41,32 @@ export default new Router({
             component: Layout,
             children: [
                 {
-                    path: 'main',
+                    path: '/main',
                     name: 'main',
                     component: Main,
                 },
                 {
-                    path: 'mypage',
+                    path: '/profile',
                     name: 'Mypage',
                     component: Mypage,
                 },
                 {
-                    path: 'list',
+                    path: '/list',
                     name: 'List',
                     component: List,
                 },
                 {
-                    path: 'view/1', //동적
+                    path: '/view/1', //동적
                     name: 'View',
                     component: View,
                 },
                 {
-                    path: 'write',
+                    path: '/write',
                     name: 'Write',
                     component: Edit,
                 },
                 {
-                    path: 'edit', //동적
+                    path: '/edit', //동적
                     name: 'Edit',
                     component: Edit,
                 }

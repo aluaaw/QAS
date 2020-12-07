@@ -26,11 +26,11 @@
             parameterType="int">
         update board set
         updateDate as update_date = now()
-        where post_idx = {postIdx}
+        where post_idx = #{postIdx}
     </update>
 
     <delete id="postIdx" parameterType="int">
         delete from board
-        where post_idx = {postIdx}
+        where post_idx = #{postIdx}
     </delete>
 </mapper>

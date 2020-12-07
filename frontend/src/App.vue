@@ -12,7 +12,7 @@ export default {
 //    }
 
     if (currentPath === '/' || currentPath === '/') {
-      this.$router.push('/main');
+      this.$router.push('/login');
     }
   },
 };

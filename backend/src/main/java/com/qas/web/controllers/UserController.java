@@ -18,12 +18,13 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public User login(@RequestBody User request) {
+    public boolean login(@RequestBody User request) {
+        System.out.println(request.getId() +", "+request.getPassword());
         return userService.login(request);
     }
 
     @GetMapping("/{userId}")
-    public String idCheck(@PathVariable String id) {
+    public boolean idCheck(@PathVariable String id) {
         return userService.idCheck(id);
     }
 

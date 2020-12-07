@@ -17,8 +17,8 @@
           <th style="text-align: center">최종 작성일</th>
           <th style="text-align: center">조회수</th>
         </tr>
-        <tr v-if="list === null">
-          <td colspan="4">데이터가 없습니다.</td>
+        <tr v-if="list === undefined">
+          <td colspan="5" style="text-align: center">게시글이 없습니다.</td>
         </tr>
 
         <tr v-else v-for="data in list" v-bind:key="data.postIdx">
@@ -47,7 +47,7 @@ export default {
       list: []
     }
   }
-  , mounted() {
+  , created() {
     this.getList();
   }
   , methods: {

@@ -3,7 +3,7 @@
     <h2>게시판 등록</h2>
     <div class="AddWrap" style="padding: 55px">
 
-      <div v-if="data === null">
+      <div v-if="data === undefined">
       <form>
         <table class="tbAdd">
           <colgroup>
@@ -40,7 +40,7 @@
       </div>
 
       <!-- 수정 -->
-      <div v-else>
+      <div v-else v-for="data in list" v-bind:key="data.postIdx">
         <form>
           <table class="tbAdd">
             <colgroup>

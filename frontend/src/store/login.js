@@ -2,9 +2,12 @@ import axios from 'axios';
 
 const state = {
     context: 'http://localhost:8080',
-    user: {},
+    user: {
+        id: '',
+        password: ''
+    },
     isLogin: true,
-    isLoginError: false,
+    isLoginError: false
 }
 
 const mutations = {
@@ -12,9 +15,13 @@ const mutations = {
         state.isLogin = true
         state.isLoginError = false
         state.user = payload.user
+
+        //수정해야 하는부분
         localStorage.setItem('token', payload.token)
-        localStorage.setItem('userId', payload.user.userId)
-        localStorage.setItem('userPassword', payload.user.userPassword)
+        localStorage.setItem('id', payload.user.id)
+        localStorage.setItem('password', payload.user.password)
+        alert("환영합니다.");
+        this.$router.push({path: './main', query: this.body})
     },
     LOGIN_ERROR(state) {
         state.isLogin = false
@@ -28,21 +35,22 @@ const actions = {
         const url = state.context + '/user/login'
         const headers = {
             authorization: 'JWT fefege..',
-            Accept: 'a아pplication/json',
+            Accept: 'application/json',
             'Content-Type': 'application/json'
         }
         axios
             .post(url, payload, headers)
             .then(({data}) => {
-                if (data.result) { //이게 무슨 뜻인지 모르겠음
+                if (data === true) {
+                    console.log("true 진입")
                     commit('LOGIN_SUCCESS', data)
                 } else {
-                    alert('error')
+                    console.log("false 진입")
                     commit('LOGIN_ERROR')
                 }
             })
             .catch(() => {
-                alert('서버 전송 실패')
+                console.log("catch 진입")
                 commit('LOGIN_ERROR')
             })
     }
