@@ -12,6 +12,7 @@ import List from '@/pages/Typography/List'
 import Write from '@/pages/Typography/Write'
 import Edit from '@/pages/Typography/Edit'
 import View from '@/pages/Typography/View'
+import Search from "@/pages/Typography/Search";
 
 Vue.use(Router);
 
@@ -27,6 +28,16 @@ export default new Router({
             component: Login,
         },
         {
+            path: '*',
+            redirect: '/error'
+        },
+        {
+            path: '/error',
+            name: 'Error',
+            component: Error,
+        },
+
+        {
             path: '/login',
             name: 'Login',
             component: Login,
@@ -37,18 +48,13 @@ export default new Router({
             component: Join,
         },
         {
-            path: '/error',
-            name: 'Error',
-            component: Error,
-        },
-        {
             path: '/',
             name: 'Layout',
             component: Layout,
             children: [
                 {
                     path: '/main',
-                    name: 'main',
+                    name: 'Main',
                     component: Main,
                 },
                 {
@@ -57,24 +63,34 @@ export default new Router({
                     component: Mypage,
                 },
                 {
-                    path: '/list',
+                    path: 'board',
+                    redirect: 'board/list',
+                    component: List
+                },
+                {
+                    path: 'board/list',
                     name: 'List',
                     component: List,
                 },
                 {
-                    path: '/view/:postidx',
+                    path: 'board/view/:postidx',
                     name: 'View',
                     component: View,
                 },
                 {
-                    path: '/write',
+                    path: 'board/write',
                     name: 'Write',
                     component: Write,
                 },
                 {
-                    path: '/edit/:postidx', //동적
+                    path: 'board/edit/:postidx',
                     name: 'Edit',
                     component: Edit,
+                },
+                {
+                    path: 'board/:searchValue',
+                    name: 'Search',
+                    component: Search
                 }
             ],
         },

@@ -7,16 +7,11 @@
             Opps, it seems that this page does not exist.
         </p>
         <p class="errorHelp mb-3">
-            If you are sure it should, search for it.
+            메인으로 돌아가려면 아래 버튼을 눌러주세요.
         </p>
         <b-form>
-          <b-form-group>
-            <b-form-input class="input-no-border" type="text" placeholder="Search Pages" />
-          </b-form-group>
-          <router-link tag="a" to="/app/extra/search">
-            <b-button class="errorBtn" type="submit" variant="success">
-                Search <i class="la la-search ml-xs" />
-            </b-button>
+          <router-link tag="a" to="/login">
+            <b-button class="btn">메인으로 돌아가기</b-button>
           </router-link>
         </b-form>
       </div>
@@ -29,7 +24,7 @@
 
 <script>
 export default {
-  name: 'ErrorPage',
+  name: 'Error',
 };
 </script>
 
