@@ -1,7 +1,8 @@
 import axios from 'axios'
+import router from '../router';
 
 const state = {
-    context: 'http://localhost:8080/user',
+    context: 'http://localhost:8080/user/',
     user: {},
     isAuth: true,
     isJoin: true,
@@ -13,10 +14,12 @@ const mutations = {
         state.isJoin = true
         state.isJoinError = false
         state.user = payload.user
-        localStorage.setItem('token', payload.token)
-        localStorage.setItem('id', payload.user.id)
-        localStorage.setItem('userEmail', payload.user.userEmail)
-        localStorage.setItem('password', payload.user.password)
+        alert('환영합니다! 회원가입에 성공하였습니다');
+        /*
+                localStorage.setItem('token', payload.token)
+                localStorage.setItem('id', payload.user.id)
+                localStorage.setItem('password', payload.user.password)
+        */
     },
     JOIN_ERROR(state) {
         state.isJoin = false
@@ -25,17 +28,24 @@ const mutations = {
     },
     AUTH_ID_SUCCESS(state, id) {
         state.id = id
+        state.isJoin = true
         state.isAuth = true
+        alert('사용 가능한 아이디입니다.');
+    },
+    AUTH_ID_FAILURE(state) {
+        state.isJoin = false
+        state.isAuth = false
+        alert('이미 존재하는 아이디입니다.');
     },
     AUTH_ERROR(state) {
         state.isAuth = false
-        alert('이미 존재합니다.')
+        alert('아이디를 조회할 수 없습니다.');
     }
 }
 
 const actions = {
     async joinProcess({commit}, payload) {
-        const url = state.context + '/user/joinProcess'
+        const url = state.context + 'join'
         const headers = {
             authorization: 'JWT fefege..',
             Accept: 'application/json',
@@ -44,31 +54,29 @@ const actions = {
         axios
             .post(url, payload, headers)
             .then(({data}) => {
-                if (data.result) {
-                    alert('success')
+                if ({data}.data === true) {
                     commit('JOIN_SUCCESS', data)
+                    router.push({name: 'Login'})
                 } else {
-                    alert('error')
                     commit('JOIN_ERROR')
                 }
             })
             .catch(() => {
-                alert('서버 통신 실패')
                 commit('JOIN_ERROR')
             })
     },
-    async authIds({commit}, id) {
+    async authId({commit}, id) {
         axios
             .get(state.context + id)
-            .then(data => {
-                if (data.result) {
-                    commit('AUTH_ID_SUCCESS', id)
+            .then(({data}) => {
+                if({data}.data === true) {
+                    commit('AUTH_ID_SUCCESS')
                 } else {
-                    commit('AUTH_ERROR')
+                    commit('AUTH_ID_FAILURE')
                 }
             })
             .catch(() => {
-                alert('서버 통신 실패')
+                commit('AUTH_ERROR')
             })
     }
 }

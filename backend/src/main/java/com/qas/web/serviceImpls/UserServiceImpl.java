@@ -6,22 +6,27 @@ import com.qas.web.servies.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
     final UserMapper userMapper;
 
     @Override
-    public void join(User request) {
-        userMapper.save(request);
+    public boolean join(User request) {
+        if (this.idCheck(request.getId())) {
+            userMapper.save(request);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public boolean login(User request) {
         User checkUser = userMapper.findUserById(request);
-        if (checkUser == null) {
-            return false;
-        } else {
+        if (checkUser != null) {
             if (request.getId() == null || request.getPassword() == null) {
                 return false;
             } else if (request.getId().equals(checkUser.getId())) {
@@ -31,18 +36,23 @@ public class UserServiceImpl implements UserService {
             } else {
                 return false;
             }
-            return false;
         }
+        return false;
     }
 
     @Override
     public boolean idCheck(String id) {
-        String userId = userMapper.findUserByUserId(id);
-        if (userId.equals(id)) {
+        String userId = userMapper.findById(id);
+        if (userId == null) {
             return true;
         } else {
-            return false;
+            return !userId.equals(id);
         }
+    }
+
+    @Override
+    public List<User> getAllList(String id) {
+        return userMapper.findAll(id);
     }
 
     @Override

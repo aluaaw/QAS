@@ -5,6 +5,8 @@ import com.qas.web.servies.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
 @RequestMapping("/user")
@@ -13,8 +15,8 @@ public class UserController {
     final UserService userService;
 
     @PostMapping("/join")
-    public void join(@RequestBody User request) {
-        userService.join(request);
+    public boolean join(@RequestBody User request) {
+        return userService.join(request);
     }
 
     @PostMapping("/login")
@@ -22,9 +24,14 @@ public class UserController {
         return userService.login(request);
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/{id}")
     public boolean idCheck(@PathVariable String id) {
         return userService.idCheck(id);
+    }
+
+    @GetMapping("/list/{id}")
+    public List<User> getAllList(@PathVariable String id) {
+        return userService.getAllList(id);
     }
 
     @PutMapping("/{userIdx}")
