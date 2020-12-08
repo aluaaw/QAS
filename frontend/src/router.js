@@ -4,10 +4,8 @@ import Router from 'vue-router';
 import Layout from '@/components/Layout/Layout';
 import Join from '@/pages/Join/Join';
 import Login from '@/pages/Login/Login';
-import Mypage from "@/pages/Mypage/Mypage";
 import Error from '@/pages/Error/Error';
 
-import Main from '@/pages/Dashboard/Dashboard';
 import List from '@/pages/Typography/List'
 import Write from '@/pages/Typography/Write'
 import Edit from '@/pages/Typography/Edit'
@@ -52,16 +50,6 @@ export default new Router({
             name: 'Layout',
             component: Layout,
             children: [
-                {
-                    path: '/main',
-                    name: 'Main',
-                    component: Main,
-                },
-                {
-                    path: '/profile',
-                    name: 'Mypage',
-                    component: Mypage,
-                },
                 {
                     path: 'board',
                     redirect: 'board/list',

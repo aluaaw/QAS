@@ -9,14 +9,6 @@
       <ul class="nav">
         <NavLink
             :activeItem="activeItem"
-            header="Main"
-            link="/main"
-            iconName="flaticon-home"
-            index="main"
-            isHeader
-        />
-        <NavLink
-            :activeItem="activeItem"
             header="Board"
             link="/board/list"
             iconName="flaticon-network"

@@ -43,7 +43,7 @@ const actions = {
             .then(({data}) => {
                 if ({data}.data === true) {
                     commit('LOGIN_SUCCESS', data)
-                    router.push({name: 'Main'})
+                    router.push({name: 'List'})
                 } else {
                     commit('LOGIN_ERROR')
                 }
