@@ -10,15 +10,13 @@
         <form class="mt" @submit.prevent="login">
           <div class="form-group">
             <input class="form-control no-border" @keyup.enter="moveToPassword" ref="email" required type="id"
-                   id="id"
-                   placeholder="Email" v-model="id"/>
+                   id="id" placeholder="아이디" v-model="id"/>
           </div>
           <div class="form-group">
             <input class="form-control no-border" @keyup.enter="login" ref="password" required type="password"
-                   id="password"
-                   placeholder="Password" v-model="password"/>
+                   id="password" placeholder="비밀번호" v-model="password"/>
           </div>
-          <b-button type="submit" size="sm" class="auth-btn mb-3" variant="inverse">Login</b-button>
+          <b-button type="submit" size="sm" class="auth-btn mb-3" variant="inverse" @click="login">로그인하기</b-button>
         </form>
         <p class="widget-auth-info">
           혹시 회원이 아니세요?
@@ -54,14 +52,14 @@ export default {
           id: this.id,
           password: this.password
         })
-        this.clearForm()
+        this.clearForm();
       }
     },
     moveToId() {
-      document.getElementById('id').focus()
+      this.$refs.id.focus();
     },
     moveToPassword() {
-      document.getElementById('password').focus()
+      this.$refs.password.focus();
     },
     clearForm() {
       this.id = null
