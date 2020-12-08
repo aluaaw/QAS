@@ -2,8 +2,7 @@
   <div class="sidebar-wrapper">
     <nav
         :class="{sidebar: true, sidebarStatic, sidebarOpened}"
-        @mouseenter="sidebarMouseEnter"
-        @mouseleave="sidebarMouseLeave">
+        @mouseenter="sidebarMouseEnter">
       <header class="logo">
         <router-link to="/main"><span class="primary-word">QAS</span></router-link>
       </header>
@@ -19,7 +18,7 @@
         <NavLink
             :activeItem="activeItem"
             header="Board"
-            link="/list"
+            link="/board/list"
             iconName="flaticon-network"
             index="board"
             isHeader
@@ -69,13 +68,7 @@ export default {
         this.switchSidebar(false);
         this.setActiveByRoute();
       }
-    },
-    sidebarMouseLeave() {
-      if (!this.sidebarStatic && (isScreen('lg') || isScreen('xl'))) {
-        this.switchSidebar(true);
-        this.changeSidebarActive(null);
-      }
-    },
+    }
   },
   created() {
     this.setActiveByRoute();

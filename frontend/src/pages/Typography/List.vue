@@ -50,7 +50,7 @@ export default {
   }
   , methods: {
     fnAdd() {
-      this.$router.push({path: './write', query: this.body});
+      this.$router.push({path: '/board/write', query: this.body});
     }
     , getList() {
       return axios.get("http://localhost:8080/board")
@@ -62,7 +62,7 @@ export default {
           })
     },
     fnView(postIdx) {
-      this.$router.push({path: '/view/' + postIdx, query: this.body})
+      this.$router.push({path: '/board/view/' + postIdx, query: this.body})
     }
   }
 }

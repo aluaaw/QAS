@@ -47,12 +47,13 @@ export default {
     return {
       form: {},
       title: '',
-      content: ''
+      content: '',
+      num: this.$route.params.postidx
     }
   },
   methods: {
     fnList() {
-      this.$router.push({path: './list', query: this.body});
+      this.$router.push({path: '/board/list', query: this.body});
     },
     fnAddProc() {
       if (!this.title) {

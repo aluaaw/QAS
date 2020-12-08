@@ -56,7 +56,10 @@ export default {
   },
   methods: {
     fnList() {
-      this.$router.push({path: '/list', query: this.body});
+      this.$router.push({path: '/board/list', query: this.body});
+    },
+    fnView() {
+      this.$router.push({path: '/board/view/' + this.num, query: this.body});
     },
     fnGetPost() {
       if(this.title === undefined) {
@@ -87,7 +90,7 @@ export default {
         return axios.put('http://localhost:8080/board/' + this.num, this.form)
             .then(() => {
               alert("게시글이 수정되었습니다.");
-              return this.fnList();
+              return this.fnView();
             })
             .catch(() => {
               alert("수정 실패하였습니다.");

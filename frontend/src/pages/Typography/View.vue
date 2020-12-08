@@ -48,10 +48,10 @@ export default {
   }
   , methods: {
     fnList() {
-      this.$router.push({path: '/list', query: this.body});
+      this.$router.push({path: '/board/list', query: this.body});
     }
     , fnEdit() {
-      this.$router.push({path: '/edit/' + this.num, query: this.body});
+      this.$router.push({path: '/board/edit/' + this.num, query: this.body});
     }
     , fnGetView() {
       if(this.title === undefined) {
@@ -64,7 +64,7 @@ export default {
             this.title = data.title;
             this.content = data.content.replace(/(\n)/g, '<br/>');
           })
-          .catch((err) => {
+          .catch(() => {
             alert("게시글 불러오는 것을 실패하였습니다.");
           })
     }

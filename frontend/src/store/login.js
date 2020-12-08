@@ -1,7 +1,8 @@
 import axios from 'axios';
+import router from '../router';
 
 const state = {
-    context: 'http://localhost:8080',
+    context: 'http://localhost:8080/user/',
     user: {
         id: '',
         password: ''
@@ -15,13 +16,12 @@ const mutations = {
         state.isLogin = true
         state.isLoginError = false
         state.user = payload.user
-
-        //수정해야 하는부분
+/*
         localStorage.setItem('token', payload.token)
         localStorage.setItem('id', payload.user.id)
         localStorage.setItem('password', payload.user.password)
+*/
         alert("환영합니다.");
-        this.$router.push({path: './main', query: this.body})
     },
     LOGIN_ERROR(state) {
         state.isLogin = false
@@ -32,7 +32,7 @@ const mutations = {
 
 const actions = {
     async loginProcess({commit}, payload) {
-        const url = state.context + '/user/login'
+        const url = state.context + 'login'
         const headers = {
             authorization: 'JWT fefege..',
             Accept: 'application/json',
@@ -41,16 +41,14 @@ const actions = {
         axios
             .post(url, payload, headers)
             .then(({data}) => {
-                if (data === true) {
-                    console.log("true 진입")
+                if ({data}.data === true) {
                     commit('LOGIN_SUCCESS', data)
+                    router.push({name: 'Main'})
                 } else {
-                    console.log("false 진입")
                     commit('LOGIN_ERROR')
                 }
             })
             .catch(() => {
-                console.log("catch 진입")
                 commit('LOGIN_ERROR')
             })
     }
