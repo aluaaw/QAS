@@ -10,5 +10,5 @@ public interface BoardService {
     public Board findOne(int postIdx);
     public void update(int postIdx, Board request);
     public void delete(int postIdx);
-    public List<String> search(String searchValue);
+    public List<Board> search(String searchValue);
 }

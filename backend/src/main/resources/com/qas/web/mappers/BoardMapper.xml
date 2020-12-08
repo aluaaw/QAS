@@ -21,9 +21,9 @@
     </select>
 
     <select id="findTitle" parameterType="string" resultType="com.qas.web.domains.Board">
-        select title
+        select post_idx as postIdx, title, content, view, update_date as updateDate
         from board
-        where title like '%'+#{title}+'%'
+        where title like CONCAT('%',#{title},'%')
     </select>
 
     <update id="plusCount" parameterType="int">

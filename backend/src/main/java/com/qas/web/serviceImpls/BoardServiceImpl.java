@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -46,15 +45,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<String> search(String searchValue) {
-        String[] searchList = boardMapper.findTitle(searchValue);
-        System.out.println(Arrays.toString(searchList));
-        List<String> resultSearchList = new ArrayList<>();
-        for (int i = 0; i < searchList.length; i++) {
-            if(searchList[i].contains(searchValue)) {
-                resultSearchList.add(searchList[i]);
-            }
-        }
-        return resultSearchList;
+    public List<Board> search(String searchValue) {
+        return boardMapper.findTitle(searchValue);
     }
 }
