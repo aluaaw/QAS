@@ -68,7 +68,7 @@ export default {
           content: this.content
         }
 
-        axios.post('http://localhost:8080/board', this.form)
+        axios.post('https://296489452787.ngrok.io/board', this.form)
             .then(() => {
               alert("게시글이 등록되었습니다.");
               return this.fnList();

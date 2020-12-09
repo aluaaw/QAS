@@ -2,7 +2,7 @@ import axios from 'axios';
 import router from '../router';
 
 const state = {
-    context: 'http://localhost:8080/user/',
+    context: 'https://296489452787.ngrok.io/user/',
     user: {
         id: '',
         password: ''
@@ -16,11 +16,6 @@ const mutations = {
         state.isLogin = true
         state.isLoginError = false
         state.user = payload.user
-/*
-        localStorage.setItem('token', payload.token)
-        localStorage.setItem('id', payload.user.id)
-        localStorage.setItem('password', payload.user.password)
-*/
         alert("환영합니다.");
     },
     LOGIN_ERROR(state) {

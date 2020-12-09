@@ -2,7 +2,7 @@ import axios from 'axios'
 import router from '../router';
 
 const state = {
-    context: 'http://localhost:8080/user/',
+    context: 'https://296489452787.ngrok.io/user/',
     user: {},
     isAuth: true,
     isJoin: true,
@@ -15,11 +15,6 @@ const mutations = {
         state.isJoinError = false
         state.user = payload.user
         alert('환영합니다! 회원가입에 성공하였습니다');
-        /*
-                localStorage.setItem('token', payload.token)
-                localStorage.setItem('id', payload.user.id)
-                localStorage.setItem('password', payload.user.password)
-        */
     },
     JOIN_ERROR(state) {
         state.isJoin = false

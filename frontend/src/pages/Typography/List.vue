@@ -2,6 +2,7 @@
   <div>
     <h2>게시판 리스트</h2>
     <div class="listWrap" style="padding: 55px">
+      <Header />
       <table class="tbList">
         <colgroup>
           <col width="5%"/>
@@ -33,14 +34,13 @@
       <b-button @click="fnAdd" class="btn">글쓰기</b-button>
     </div>
 
-    <infinite-loading @infinite="infiniteHandler" spinner="waveDots" />
-
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import InfiniteLoading from 'vue-infinite-loading';
+import Header from "@/components/Header/Header";
 
 export default {
   data() {
@@ -60,7 +60,7 @@ export default {
       this.$router.push({path: '/board/write', query: this.body});
     }
     , getList() {
-      return axios.get("http://localhost:8080/board")
+      return axios.get("https://296489452787.ngrok.io/board")
           .then(({data}) => {
             this.list = data;
           })
@@ -90,9 +90,9 @@ export default {
 }
 
 .btnRightWrap {
-  text-align: center;
   float: bottom;
   padding: 10px;
+  margin: 10px 0 0 100px;
 }
 
 .btn {
