@@ -52,33 +52,34 @@ export default new Router({
             children: [
                 {
                     path: 'board',
-                    redirect: 'board/list',
+                    redirect: '/board/list',
                     component: List
                 },
                 {
-                    path: 'board/list',
+                    path: '/board/list',
                     name: 'List',
                     component: List,
                 },
                 {
-                    path: 'board/view/:postidx',
+                    path: '/board/view/:postidx',
                     name: 'View',
                     component: View,
                 },
                 {
-                    path: 'board/write',
+                    path: '/board/write',
                     name: 'Write',
                     component: Write,
                 },
                 {
-                    path: 'board/edit/:postidx',
+                    path: '/board/edit/:postidx',
                     name: 'Edit',
                     component: Edit,
                 },
                 {
-                    path: 'board/:searchValue',
+                    path: '/board/search',
                     name: 'Search',
-                    component: Search
+                    component: Search,
+                    props: (keyword) => ({query: keyword.query.q})
                 }
             ],
         },
