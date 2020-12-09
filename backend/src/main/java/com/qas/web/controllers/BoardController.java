@@ -40,8 +40,8 @@ public class BoardController {
         boardService.delete(postIdx);
     }
 
-    @GetMapping("/search/{searchValue}")
-    public List<Board> search(@PathVariable String searchValue) {
+    @GetMapping("/search")
+    public List<Board> search(@RequestParam String searchValue) {
         return boardService.search(searchValue);
     }
 }

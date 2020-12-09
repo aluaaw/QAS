@@ -19,9 +19,10 @@
             </template>
             <input hidden="hidden"/>
             <input id="search-input" v-model="searchValue" placeholder="검색어를 입력해주세요." required type="text"
-                          @keypress.enter="fnSearch(searchValue)"/>
-            <b-button style="border: #a3aeb7; background: #a3aeb7" @click="fnSearch(searchValue)"
-                      class="btn">검색</b-button>
+                   @keypress.enter="fnSearch()"/>
+            <b-button style="border: #a3aeb7; background: #a3aeb7" @click="fnSearch()"
+                      class="btn">검색
+            </b-button>
           </b-input-group>
         </b-form-group>
       </b-form>
@@ -51,6 +52,7 @@
 <script>
 import {mapState, mapActions} from 'vuex';
 import Notifications from '@/components/Notifications/Notifications';
+import axios from "axios";
 import Search from "@/pages/Typography/Search";
 
 export default {
@@ -93,9 +95,17 @@ export default {
       window.localStorage.setItem('authenticated', false);
       this.$router.push('/login');
     },
-    fnSearch(searchValue) {
-      this.searchValue = null;
-      this.$router.push({path: '/board/search/', query: {keyword: searchValue}});
+    fnSearch() {
+      axios.get('https://296489452787.ngrok.io/board/search', {params: {searchValue: this.searchValue}})
+          .then(({data}) => {
+            console.log({data})
+            this.list = data;
+            this.$router.push({name: 'Search', query: this.searchValue})
+            this.searchValue = null;
+          })
+          .catch(() => {
+            alert('검색 결과를 불러오지 못했습니다.');
+          })
     }
   }
 };

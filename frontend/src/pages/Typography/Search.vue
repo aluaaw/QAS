@@ -38,18 +38,13 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default {
   data() {
     return {
       body: this.$route.query
       , list: []
-      , keyword: this.$route.params.searchValue
+      , keyword:
     }
-  }
-  , created() {
-    this.fnGetSearchValue();
   }
   , methods: {
     fnMove() {
@@ -57,15 +52,6 @@ export default {
     },
     fnView(postIdx) {
       this.$router.push({path: '/board/view/' + postIdx, query: this.body})
-    }
-    , async fnGetSearchValue() {
-      await axios.get('http://localhost:8080/board/search/' + this.keyword, this.keyword)
-          .then(({data}) => {
-            this.list = data
-          })
-          .catch(() => {
-            alert('검색 결과를 불러오지 못했습니다.');
-          })
     }
   }
 }
