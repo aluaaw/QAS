@@ -33,17 +33,24 @@
       <b-button @click="fnAdd" class="btn">글쓰기</b-button>
     </div>
 
+    <infinite-loading @infinite="infiniteHandler" spinner="waveDots" />
+
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import InfiniteLoading from 'vue-infinite-loading';
 
 export default {
   data() {
     return {
-      list: []
+      list: [],
+      limit: 0
     }
+  }
+  , components: {
+    InfiniteLoading
   }
   , created() {
     this.getList();
