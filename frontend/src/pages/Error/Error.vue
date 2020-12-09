@@ -10,7 +10,7 @@
             메인으로 돌아가려면 아래 버튼을 눌러주세요.
         </p>
         <b-form>
-          <router-link tag="a" to="/login">
+          <router-link tag="a" to="/board/list">
             <b-button class="btn">메인으로 돌아가기</b-button>
           </router-link>
         </b-form>

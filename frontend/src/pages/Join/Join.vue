@@ -57,6 +57,7 @@ export default {
   methods: {
     authId() {
       if (!this.id) {
+        alert('아이디를 입력해주세요.');
         this.$refs.id.focus();
       } else if (this.id.length < 8 || this.id.length > 12) {
         alert('아이디는 최소 8자에서 최대 12자까지 입력하실 수 있습니다.');

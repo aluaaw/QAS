@@ -10,3 +10,6 @@ spring:
     password: Illunex123!
     driver-class-name: org.mariadb.jdbc.Driver
     sql-script-encoding: UTF-8
+    hikari:
+      idle-timeout: 300
+      max-lifetime: 300
