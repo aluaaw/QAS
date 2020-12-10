@@ -6,28 +6,28 @@
       <header class="logo">
         <router-link to="/board"><span class="primary-word">QAS</span></router-link>
       </header>
-      <ul class="nav">
-        <NavLink
-            :activeItem="activeItem"
-            header="게시판"
-            link="/board"
-            iconName="flaticon-network"
-            index="board"
-            isHeader
-        />
-      </ul>
+      <div @click="fnList">
+        <ul class="nav">
+          <NavLink
+              :activeItem="activeItem"
+              header="게시판"
+              iconName="flaticon-network"
+              index="board"
+              isHeader/>
+        </ul>
+      </div>
     </nav>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import {mapState, mapActions} from 'vuex';
 import isScreen from '@/core/screenHelper';
 import NavLink from './NavLink/NavLink';
 
 export default {
   name: 'Sidebar',
-  components: { NavLink },
+  components: {NavLink},
   data() {
     return {
       alerts: [
@@ -60,6 +60,10 @@ export default {
         this.switchSidebar(false);
         this.setActiveByRoute();
       }
+    },
+    fnList() {
+      console.log('진입')
+      this.$router.push({path: '/board/', query: this.body}).catch(this.$router.go(this.$router.currentRoute));
     }
   },
   created() {
