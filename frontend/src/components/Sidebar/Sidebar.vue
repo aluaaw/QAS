@@ -4,13 +4,13 @@
         :class="{sidebar: true, sidebarStatic, sidebarOpened}"
         @mouseenter="sidebarMouseEnter">
       <header class="logo">
-        <router-link to="/board/list"><span class="primary-word">QAS</span></router-link>
+        <router-link to="/board"><span class="primary-word">QAS</span></router-link>
       </header>
       <ul class="nav">
         <NavLink
             :activeItem="activeItem"
-            header="Board"
-            link="/board/list"
+            header="게시판"
+            link="/board"
             iconName="flaticon-network"
             index="board"
             isHeader

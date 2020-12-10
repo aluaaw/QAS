@@ -2,15 +2,13 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Layout from '@/components/Layout/Layout';
-import Join from '@/pages/Join/Join';
-import Login from '@/pages/Login/Login';
+import Join from '@/pages/Common/Join';
+import Login from '@/pages/Common/Login';
 import Error from '@/pages/Error/Error';
 
-import List from '@/pages/Typography/List'
-import Write from '@/pages/Typography/Write'
-import Edit from '@/pages/Typography/Edit'
-import View from '@/pages/Typography/View'
-import Search from "@/pages/Typography/Search";
+import List from '@/pages/Board/List'
+import Edit from '@/pages/Board/Edit'
+import View from '@/pages/Board/View'
 
 Vue.use(Router);
 
@@ -34,7 +32,6 @@ export default new Router({
             name: 'Error',
             component: Error,
         },
-
         {
             path: '/login',
             name: 'Login',
@@ -68,18 +65,12 @@ export default new Router({
                 {
                     path: '/board/write',
                     name: 'Write',
-                    component: Write,
+                    component: Edit,
                 },
                 {
                     path: '/board/edit/:postidx',
                     name: 'Edit',
                     component: Edit,
-                },
-                {
-                    path: '/board/search',
-                    name: 'Search',
-                    component: Search,
-                    props: (keyword) => ({query: keyword.query.q})
                 }
             ],
         },
