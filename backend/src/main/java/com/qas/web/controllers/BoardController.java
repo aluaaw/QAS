@@ -21,8 +21,8 @@ public class BoardController {
         }
 
     @GetMapping
-    public List<Board> getAllList() {
-        return boardService.getAllList();
+    public List<Board> getAllList(@RequestParam(required = false)String searchValue) {
+        return boardService.getAllList(searchValue);
     }
 
     @GetMapping("/{postIdx}")
@@ -38,10 +38,5 @@ public class BoardController {
     @DeleteMapping("/{postIdx}")
     public void delete(@PathVariable int postIdx) {
         boardService.delete(postIdx);
-    }
-
-    @GetMapping("/search")
-    public List<Board> search(@RequestParam String searchValue) {
-        return boardService.search(searchValue);
     }
 }

@@ -11,10 +11,10 @@
     <select id="findAll" resultType="com.qas.web.domains.Board">
         select post_idx as postIdx, title, content, view, update_date as updateDate
         from board
+        order by post_Idx desc
     </select>
 
-    <select id="findOne" resultType="com.qas.web.domains.Board"
-            parameterType="int">
+    <select id="findOne" resultType="com.qas.web.domains.Board" parameterType="int">
         select *
         from board
         where post_idx = #{postIdx}
@@ -24,6 +24,7 @@
         select post_idx as postIdx, title, content, view, update_date as updateDate
         from board
         where title like CONCAT('%',#{title},'%')
+        order by post_Idx desc
     </select>
 
     <update id="plusCount" parameterType="int">

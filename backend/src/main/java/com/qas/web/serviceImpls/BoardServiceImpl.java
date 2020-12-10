@@ -19,8 +19,12 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<Board> getAllList() {
-        return boardMapper.findAll();
+    public List<Board> getAllList(String searchValue) {
+        if (searchValue == null) {
+            return boardMapper.findAll();
+        } else {
+            return boardMapper.findTitle(searchValue);
+        }
     }
 
     @Override
@@ -41,10 +45,5 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void delete(int postIdx) {
         boardMapper.deleteAll(postIdx);
-    }
-
-    @Override
-    public List<Board> search(String searchValue) {
-        return boardMapper.findTitle(searchValue);
     }
 }
