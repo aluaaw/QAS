@@ -2,7 +2,7 @@ import axios from 'axios'
 import router from '../router';
 
 const state = {
-    context: 'https://296489452787.ngrok.io/user/',
+    context: 'https://160bb4d70872.ngrok.io/user/',
     user: {},
     isAuth: true,
     isJoin: true,

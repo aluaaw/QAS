@@ -58,7 +58,8 @@ export default {
         alert("게시글에 문제가 생겼습니다. 리스트 페이지로 돌아갑니다.");
         this.fnList();
       }
-      return axios.get('https://296489452787.ngrok.io/board/' + this.num, {params: this.body})
+
+      return axios.get('https://160bb4d70872.ngrok.io/board' + '/' + this.num, {params: this.body})
           .then(({data}) => {
             this.view = data.view;
             this.title = data.title;
@@ -69,7 +70,7 @@ export default {
           })
     }
     , fnDelete() {
-      return axios.delete('https://296489452787.ngrok.io/board/' + this.num, {params: this.body})
+      return axios.delete('https://160bb4d70872.ngrok.io/board' + '/' + this.num, {params: this.body})
           .then(() => {
             alert("삭제가 완료되었습니다.");
             this.fnList();
