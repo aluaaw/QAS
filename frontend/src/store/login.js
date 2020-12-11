@@ -2,7 +2,7 @@ import axios from 'axios';
 import router from '../router';
 
 const state = {
-    context: 'https://160bb4d70872.ngrok.io/user/',
+    context: 'http://localhost:8080/user/',
     user: {
         id: '',
         password: ''

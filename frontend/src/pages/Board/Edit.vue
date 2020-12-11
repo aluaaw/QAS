@@ -77,7 +77,7 @@ export default {
         alert("게시글에 문제가 생겼습니다. 리스트 페이지로 돌아갑니다.");
         this.fnList();
       }
-      return axios.get('https://160bb4d70872.ngrok.io/board' + '/' + this.num, {params: this.body})
+      return axios.get('http://localhost:8080/board' + '/' + this.num, {params: this.body})
           .then(({data}) => {
             this.title = data.title;
             this.content = data.content;
