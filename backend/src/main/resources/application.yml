@@ -1,13 +1,14 @@
 server:
-  port: 8080
+  port: 9249
 
 spring:
+  profiles: dev
   application:
-    name: handycnt
+    name: qas
   datasource:
-    url: jdbc:mariadb://testdb.clp2ztogrluw.ap-northeast-2.rds.amazonaws.com:3306/hs_test
-    username: admin
-    password: Illunex123!
+    url: jdbc:mariadb://localhost:3306/qas
+    username: ny
+    password: rot1234!
     driver-class-name: org.mariadb.jdbc.Driver
     sql-script-encoding: UTF-8
     hikari:
