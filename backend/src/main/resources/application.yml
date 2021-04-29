@@ -9,7 +9,6 @@ spring:
     url: jdbc:mariadb://localhost:3306/qas
     username: ny
     password: rot1234!
-    driver-class-name: org.mariadb.jdbc.Driver
     sql-script-encoding: UTF-8
     hikari:
       idle-timeout: 300

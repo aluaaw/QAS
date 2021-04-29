@@ -1,0 +1,111 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.0.RELEASE)
+
+2021-04-29 17:01:53.872  INFO 28493 --- [           main] com.qas.web.WebApplication               : Starting WebApplication on NYs-MacBookPro.local with PID 28493 (/Users/ny/Side/qas/backend/build/libs/qas-1.0.0-SNAPSHOT.jar started by ny in /Users/ny/Side/qas/backend)
+2021-04-29 17:01:53.873  INFO 28493 --- [           main] com.qas.web.WebApplication               : The following profiles are active: dev
+2021-04-29 17:01:55.013  INFO 28493 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-29 17:01:55.025  INFO 28493 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-29 17:01:55.025  INFO 28493 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2021-04-29 17:01:55.095  INFO 28493 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-29 17:01:55.096  INFO 28493 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1179 ms
+2021-04-29 17:01:55.548  INFO 28493 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-29 17:01:55.745  WARN 28493 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2021-04-29 17:01:55.745  INFO 28493 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-29 17:01:55.748  INFO 28493 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-04-29 17:01:55.763  INFO 28493 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-29 17:01:55.765 ERROR 28493 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.0.RELEASE)
+
+2021-04-29 17:03:07.912  INFO 28676 --- [           main] com.qas.web.WebApplication               : Starting WebApplication on NYs-MacBookPro.local with PID 28676 (/Users/ny/Side/qas/backend/build/libs/qas-1.0.0-SNAPSHOT.jar started by ny in /Users/ny/Side/qas/backend)
+2021-04-29 17:03:07.914  INFO 28676 --- [           main] com.qas.web.WebApplication               : The following profiles are active: dev
+2021-04-29 17:03:08.884  INFO 28676 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-29 17:03:08.895  INFO 28676 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-29 17:03:08.895  INFO 28676 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2021-04-29 17:03:08.953  INFO 28676 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-29 17:03:08.953  INFO 28676 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 994 ms
+2021-04-29 17:03:09.342  INFO 28676 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-29 17:03:09.501  WARN 28676 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2021-04-29 17:03:09.501  INFO 28676 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-29 17:03:09.504  INFO 28676 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-04-29 17:03:09.513  INFO 28676 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-29 17:03:09.514 ERROR 28676 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.0.RELEASE)
+
+2021-04-29 17:04:48.925  INFO 29104 --- [           main] com.qas.web.WebApplication               : Starting WebApplication on NYs-MacBookPro.local with PID 29104 (/Users/ny/Side/qas/backend/build/libs/qas-1.0.0-SNAPSHOT.jar started by ny in /Users/ny/Side/qas/backend)
+2021-04-29 17:04:48.928  INFO 29104 --- [           main] com.qas.web.WebApplication               : The following profiles are active: dev
+2021-04-29 17:04:49.896  INFO 29104 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-29 17:04:49.906  INFO 29104 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-29 17:04:49.907  INFO 29104 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.35]
+2021-04-29 17:04:49.972  INFO 29104 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-29 17:04:49.972  INFO 29104 --- [           main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1004 ms
+2021-04-29 17:04:50.341  INFO 29104 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-29 17:04:50.479  WARN 29104 --- [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2021-04-29 17:04:50.480  INFO 29104 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-29 17:04:50.481  INFO 29104 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-04-29 17:04:50.489  INFO 29104 --- [           main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-04-29 17:04:50.490 ERROR 29104 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
